@@ -1,0 +1,207 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primeryColor: #283644;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    direction: ltr;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--primeryColor);
+
+}
+
+.title {
+    background-color: var(--primeryColor);
+    width: 100%;
+    color: #FBA1A1;
+    display: flex;
+    justify-content: end;
+    padding-right: 30px;
+    flex-direction: row;
+     align-items: center;
+}
+
+
+.navbar {
+    width: 100%;
+    height: 200px;
+    background-color: var(--primeryColor);
+    color: #FBA1A1;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.restOfNavbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-right: 40px;
+}
+
+#restart {
+    background-color:#4D727E;
+    color: rgb(0, 0, 0);
+    border: 1px solid #4D727E;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 4px;
+    margin: 5px;
+    box-shadow: 1px -32px 20px -20px rgba(255,171,171,0.45),
+    25px 0px 20px -20px rgba(255,171,171,1),
+    0px 25px 20px -20px rgba(255,171,171,1),
+    -21px 0px 20px -20px rgba(255,171,171,1);
+}
+
+.restart:hover {
+    background-color: #FBA1A1;
+    cursor: pointer;
+
+}
+
+.levels {
+    padding: 5px;
+    border-radius: 4px;
+    background-color: #4D727E;
+    margin: 5px;
+    box-shadow: 1px -32px 20px -20px rgba(255,171,171,0.45),
+25px 0px 20px -20px rgba(255,171,171,1),
+0px 25px 20px -20px rgba(255,171,171,1),
+-21px 0px 20px -20px rgba(255,171,171,1);
+box-shadow: 0px -25px 20px -20px rgba(0, 0, 0, 0.40),
+25px 0px 20px -20px rgba(0, 0, 0, 0.40),
+0px 25px 20px -20px rgba(0, 0, 0, 0.40),
+-25px 0px 20px -20px rgba(0, 0, 0, 0.40);
+}
+
+#level1{
+    box-shadow: 0px -25px 20px -20px rgba(0, 0, 0, 0.40),
+    25px 0px 20px -20px rgba(0, 0, 0, 0.40),
+    0px 25px 20px -20px rgba(0, 0, 0, 0.40),
+    -25px 0px 20px -20px rgba(0, 0, 0, 0.40);
+}
+
+.levels:hover {
+    background-color: #FBA1A1;
+   cursor: pointer;
+  
+}
+
+.lossesDisplay {
+    margin: 20px;
+}
+
+.amountOfCards {
+    margin: 50px;
+}
+
+.playerScore {
+    margin: 10px;
+    display: none;
+    margin-right: 170px;
+  
+}
+
+
+.name {
+    justify-content: center;
+    align-items: center;
+}
+
+#score1 {
+    margin: 10px;
+    font-size: 30px;
+}
+
+#score2 {
+    margin: 10px;
+    font-size: 30px;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.board {
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primeryColor);
+    align-items: flex-start;
+    margin-left: 100px;
+    margin-right: 60px;
+}
+
+
+.card {
+    font-size: 0px;
+    height: 220px;
+    width: 180px;
+    box-shadow: 0px -25px 20px -20px rgba(0, 0, 0, 0.40),
+        25px 0px 20px -20px rgba(0, 0, 0, 0.40),
+        0px 25px 20px -20px rgba(0, 0, 0, 0.40),
+        -25px 0px 20px -20px rgba(0, 0, 0, 0.40);
+        box-shadow: 1px -32px 20px -20px rgba(255,171,171,0.45),
+        25px 0px 20px -20px rgba(255,171,171,1),
+        0px 25px 20px -20px rgba(255,171,171,1),
+        -21px 0px 20px -20px rgba(255,171,171,1);
+    cursor: pointer;
+    transition: -webkit-transform 0.5s ease-in-out;
+    transition: transform 0.2s ease-in-out;
+    margin: 10px 10px 10px 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+#gameOver {
+    font-size: 80px;
+    font-weight: 900;
+    color: rgb(246, 255, 0);
+    display: none;
+    padding-bottom: 200px ;
+    justify-content: center;
+    align-self: center;
+    align-items: center;
+    z-index: 100;
+    position: absolute;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    position: relative;
+    padding: 10px;
+}
+
+
+.countDown {
+    width: 40px;
+    height: 20px;
+    background-color: rgb(255, 255, 255);
+    border: 3px pink solid;
+    border-radius: 10px;
+}

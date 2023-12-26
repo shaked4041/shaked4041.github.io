@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>memory game</title>
+    <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+    <div class="navbar">
+        
+        <div class="title">
+        <div class="playerScore">
+            <div class="p1">
+            <span id="score1"> player1 :</span>
+            <span id="score1" class="player1" >score: 0</span>
+            </div>
+            <div class="p2">
+            <span id="score2"> player2 :</span>
+            <span id="score2" class="player2">score: 0</span>
+            </div>
+        </div>
+            <h1>memory card game |</h1>
+        </div>
+
+        <div class="restOfNavbar">
+
+            <span>
+                <!-- <h4>name of player: <input type="text" class="name" placeholder="enter name"></h4> -->
+            </span>
+
+            <!-- <div class="timer"> -->
+            <!-- <h4>amount of time left:</h4> -->
+            <!-- <button class="countDown"></button> -->
+            <!-- </div> -->
+
+            <div class="lossesDisplay">Losses: 0</div>
+
+            <div class="amountOfCards">
+                <h3>Choose amount of cards -</h3>
+                <button id="level1" class="levels" onclick="handleLevel(event)">10 Cards</button>
+                <button id="level2" class="levels" onclick="handleLevel(event)">20 Cards</button>
+                <button id="level3" class="levels" onclick="handleLevel(event)">30 Cards</button>
+            </div>
+
+            <div class="amountOfCards">
+                <h3>Choose amount of players</h3>
+                <!-- <button  class="levels" onclick="restart()">1 Player</button>
+                <button  class="levels" onclick="restart2Players()">2 Players</button> -->
+                <button class="levels" onclick="restart(1)">1 Player</button>
+                <button class="levels" onclick="restart(2)">2 Players</button>
+            </div>
+
+            <button class="restart" onclick="handleRestart()">Restart</button>
+
+        </div>
+
+    </div>
+
+
+    <div class="container">
+        <div class="board">
+
+            <div id="gameOver">
+                Game Over!!!
+            </div>
+        </div>
+    </div>
+    <script src="./main.js"></script>
+</body>
+
+</html>
+
+
+
+<!-- onclick="timer()" -->
