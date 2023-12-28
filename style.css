@@ -80,10 +80,10 @@ body {
 25px 0px 20px -20px rgba(255,171,171,1),
 0px 25px 20px -20px rgba(255,171,171,1),
 -21px 0px 20px -20px rgba(255,171,171,1);
-box-shadow: 0px -25px 20px -20px rgba(0, 0, 0, 0.40),
+/* box-shadow: 0px -25px 20px -20px rgba(0, 0, 0, 0.40),
 25px 0px 20px -20px rgba(0, 0, 0, 0.40),
 0px 25px 20px -20px rgba(0, 0, 0, 0.40),
--25px 0px 20px -20px rgba(0, 0, 0, 0.40);
+-25px 0px 20px -20px rgba(0, 0, 0, 0.40); */
 }
 
 #level1{
@@ -162,7 +162,7 @@ box-shadow: 0px -25px 20px -20px rgba(0, 0, 0, 0.40),
         25px 0px 20px -20px rgba(0, 0, 0, 0.40),
         0px 25px 20px -20px rgba(0, 0, 0, 0.40),
         -25px 0px 20px -20px rgba(0, 0, 0, 0.40);
-        box-shadow: 1px -32px 20px -20px rgba(255,171,171,0.45),
+        box-shadow: 0px -15px 10px -10px rgba(255,171,171,0.45),
         25px 0px 20px -20px rgba(255,171,171,1),
         0px 25px 20px -20px rgba(255,171,171,1),
         -21px 0px 20px -20px rgba(255,171,171,1);

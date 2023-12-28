@@ -220,7 +220,7 @@ function init2Players() {
         let playerScore = document.getElementsByClassName("playerScore")[0];
         playerScore.style.display = "block";
 
-        document.getElementsByClassName('p1')[0].style.backgroundColor = 'white';
+        document.getElementsByClassName('p1')[0].style.backgroundColor = '#4D727E';
         document.getElementsByClassName('p2')[0].style.backgroundColor = '';
 
         cardElement.onclick = () => {
@@ -367,12 +367,12 @@ function switchHighlight() {
     setTimeout(() => {
         if (currentPlayer == 1) {
             document.getElementsByClassName('p1')[0].style.backgroundColor = ''; // or null
-            document.getElementsByClassName('p2')[0].style.backgroundColor = 'white';
+            document.getElementsByClassName('p2')[0].style.backgroundColor = '#4D727E';
             currentPlayer = 2
         }
         else {
             document.getElementsByClassName('p2')[0].style.backgroundColor = ''; // or null
-            document.getElementsByClassName('p1')[0].style.backgroundColor = 'white';
+            document.getElementsByClassName('p1')[0].style.backgroundColor = '#4D727E';
             currentPlayer = 1
         }
     }, 600)
