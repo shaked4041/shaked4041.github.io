@@ -1,4 +1,5 @@
 
+
 const mainArray = [
     { src: "assets/\watermelon.png", name: "watermelon" },
     { src: "assets/\pineapple.png", name: "pineapple" },
@@ -35,6 +36,7 @@ const backImg = "assets/\catPic2.png"
 let copyMainArray = mainArray
 let updatedArray = copyMainArray.slice(0, 5);
 let losses = 0;
+let currentMode = 1
 
 function init() {
     // document.getElementById("gameOver").style.display = "none"; // Add this line
@@ -44,9 +46,7 @@ function init() {
     let count = 0;
     let arr = [];
     let rightArr = [];
-
-
-
+    currentMode = 1
     shuffled.forEach((cardValue, index) => {
         const cardElement = document.createElement("div");
         cardElement.className = "card";
@@ -107,23 +107,37 @@ function init() {
 }
 
 
-function handleLevel(event) {
+// function handleLevel(event) {
 
-    let copyMainArray = mainArray
+//     let copyMainArray = mainArray
+
+//     if (event.target.id === "level1") {
+//         updatedArray = copyMainArray.slice(0, 5);
+//         restart(currentMode)
+//     }
+//     else if (event.target.id === "level2") {
+//         updatedArray = copyMainArray.slice(0, 10)
+//         restart(currentMode)
+//     }
+//     else if (event.target.id === "level3") {
+//         updatedArray = copyMainArray;
+//         restart(currentMode)
+//     }
+
+// }
+
+function handleLevel(event) {
+    let copyMainArray = mainArray;
 
     if (event.target.id === "level1") {
         updatedArray = copyMainArray.slice(0, 5);
-        restart()
-    }
-    else if (event.target.id === "level2") {
-        updatedArray = copyMainArray.slice(0, 10)
-        restart()
-    }
-    else if (event.target.id === "level3") {
+    } else if (event.target.id === "level2") {
+        updatedArray = copyMainArray.slice(0, 10);
+    } else if (event.target.id === "level3") {
         updatedArray = copyMainArray;
-        restart()
     }
 
+    restart(currentMode);
 }
 
 
@@ -136,9 +150,6 @@ function flipBack(arr) {
         second.style.transform = "rotateY(0deg)";
         first.childNodes[1].src = backImg;
         second.childNodes[1].src = backImg;
-
-        // losses++;
-        // updateLossesDisplay();
     }, 500);
 
 }
@@ -147,11 +158,37 @@ function flipBack(arr) {
 function restart1Player() {
     const boardElement = document.getElementsByClassName("board")[0];
     boardElement.innerHTML = ""
+    rightArr = [];
+
+    currentMode = 1
+    if (currentMode === 1) {
+        updatedArray = copyMainArray.slice(0, 5);
+    } else {
+        updatedArray = copyMainArray.slice(0, 10);
+    }
+    // timerInterval = setInterval(timer(), 1000);
     init()
     resetLosses()
-
-    // timerInterval = setInterval(timer(), 1000);
 }
+
+
+// function restart1Player() {
+//     const boardElement = document.getElementsByClassName("board")[0];
+//     boardElement.innerHTML = "";
+//     rightArr = [];
+
+//     currentMode = 1;
+//     if (currentMode === 1) {
+//         updatedArray = copyMainArray.slice(0, 5).map(item => ({ ...item }));
+//     } else {
+//         updatedArray = copyMainArray.slice(0, 10).map(item => ({ ...item }));
+//     }
+
+//     init();
+//     resetLosses();
+// }
+
+
 
 function resetLosses() {
     const lossesDisplay = document.getElementsByClassName('lossesDisplay')[0];
@@ -169,7 +206,6 @@ init();
 function handle2Players() {
     init2Players()
 }
-
 
 
 // const startMinutes = 3;
@@ -193,9 +229,10 @@ let player2Pairs = 0;
 let currentPlayer = 1;
 
 function init2Players() {
+    currentMode = 2
     let lossesDisplay = document.getElementsByClassName("lossesDisplay")[0];
     lossesDisplay.style.display = "none";
-    
+
     // document.getElementById("gameOver").style.display = "none"; // Add this line
 
     const boardElement = document.getElementsByClassName("board")[0];
@@ -205,8 +242,6 @@ function init2Players() {
     let arr = [];
     let rightArr = [];
 
-    // player1Pairs = 0;
-    // player2Pairs = 0;
     shuffled.forEach((cardValue, index) => {
         const cardElement = document.createElement("div");
         cardElement.className = "card";
@@ -255,13 +290,12 @@ function init2Players() {
 
 
                                 if (rightArr.length === shuffled.length) {
-                                     checkIfEnd()
+                                    checkIfEnd()
                                     // document.getElementById("gameOver").style.display = "block";
 
                                 }
 
                                 // if (rightArr.length == shuffled.length) {
-                                //     // alert("hu")
                                 //     // checkIfEnd()
                                 //     document.getElementById("gameOver").style.display = "block";
 
@@ -271,8 +305,8 @@ function init2Players() {
                                 count = 0;
 
                                 switchHighlight()
-                                }
-                            
+                            }
+
 
                             else {
                                 flipBack2Players(arr);
@@ -303,8 +337,6 @@ function flipBack2Players(arr) {
         second.style.transform = "rotateY(0deg)";
         first.childNodes[1].src = backImg;
         second.childNodes[1].src = backImg;
-
-        losses++;
     }, 500);
 
 }
@@ -320,14 +352,10 @@ function checkIfEnd() {
     }
 
     alert(result)
-    // Use innerText to set the plain text content
+
     // document.getElementById("gameOver").innerText = result;
     // document.getElementById("gameOver").style.display = "block";
     document.getElementById("gameOver").style.display = "block";
-    // setTimeout(()=>{
-    // },2000)
-    
-
 }
 
 
@@ -341,27 +369,6 @@ function updateScore() {
     }
     // checkIfEnd()
 }
-
-
-// function updateLossesDisplay() {
-//     const lossesDisplay = document.getElementsByClassName('lossesDisplay')[0];
-//     lossesDisplay.innerText = `Losses: ${losses}`;
-// }
-
-// function updateResetScore(){
-    
-//     document.getElementsByClassName("player1").textContent = "score: 0"
-//     document.getElementsByClassName("player2").textContent = "score: 0"
-// }
-
-
-// function resetScore() {
-//   let  player1Pairs = 0;
-//   let  player2Pairs = 0;
-// }
-
-// updateScore()
-
 
 function switchHighlight() {
     setTimeout(() => {
@@ -378,75 +385,36 @@ function switchHighlight() {
     }, 600)
 }
 
-
-// function switchHighlight() {
-//     setTimeout(() => {
-//         if (currentPlayer == 1) {
-//             document.getElementsByClassName('p1')[0].style.boxShadow = ''; // or null
-//             document.getElementsByClassName('p2')[0].style.boxShadow = '1px -32px 20px -20px rgba(255,171,171,0.45), 25px 0px 20px -20px rgba(255,171,171,1), 0px 25px 20px -20px rgba(255,171,171,1), -21px 0px 20px -20px rgba(255,171,171,1)';
-//             currentPlayer = 2
-//         }
-//         else {
-//             document.getElementsByClassName('p2')[0].style.boxShadow = ''; // or null
-//             document.getElementsByClassName('p1')[0].style.boxShadow = '1px -32px 20px -20px rgba(255,171,171,0.45), 25px 0px 20px -20px rgba(255,171,171,1), 0px 25px 20px -20px rgba(255,171,171,1), -21px 0px 20px -20px rgba(255,171,171,1)';
-//             currentPlayer = 1
-//         }
-//     }, 600)
-// }
-
-
-
 function restart2Players() {
     player1Pairs = 0;
     player2Pairs = 0;
     rightArr = [];
+    document.getElementsByClassName('player1')[0].textContent = 'score: 0';
+    document.getElementsByClassName('player2')[0].textContent = 'score: 0';
     const boardElement = document.getElementsByClassName("board")[0];
     boardElement.innerHTML = ""
-    // resetScore()
-    // updateResetScore()
-    
-    // document.getElementsByClassName("player1")[0].innerText = "score: 0"
-    // document.getElementsByClassName("player2")[0].innerText = "score: 0"
-
     init2Players()
-
-
     // timerInterval = setInterval(timer(), 1000);
-}
-
-function handleLevel(event) {
-    let copyMainArray = mainArray;
-
-    if (event.target.id === "level1") {
-        updatedArray = copyMainArray.slice(0, 5);
-        restart();
-    } else if (event.target.id === "level2") {
-        updatedArray = copyMainArray.slice(0, 10);
-        restart();
-    } else if (event.target.id === "level3") {
-        updatedArray = copyMainArray;
-        restart();
-    }
 }
 
 function restart(players) {
     const boardElement = document.getElementsByClassName("board")[0];
     boardElement.innerHTML = "";
-    
+
     if (players === 2) {
         restart2Players();
-        // restart(2)
+        currentMode = 2
     } else {
-        // restart1Players()
+        restart1Player()
         init();
         resetLosses();
-        // updateResetScore();
+        window.location.reload();
+        currentMode = 1
+
     }
 
 }
 
 function handleRestart() {
-    restart(1); 
+    restart(currentMode);
 }
-
-
